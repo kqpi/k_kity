@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+     
+
+       <link id="stylesheet" href="style.css" rel="stylesheet" type="text/css" />
+  <title></title>
+</head>
+    <script>
+    $(function() {
+      window.addEventListener('message', function(event) {
+        if(event.data.type == "open"){
+          $('.row').css('visibility', 'visible')
+        }else{
+          $('.row').css('visibility', 'hidden')
+        }
+      });
+    }); 
+    </script>
+<section class="row">
+  <div class="nine columns">
+    <div class="coverflow top10 bot10">
+      <div class="szef-text">
+        <div class="small">Wybierz Zestaw</div>
+      </div>
+      <a class="prev-arrow"></a>
+      <a href=""><img onclick="kit_jedzenie()" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6b/Steak_JE1_BE1.png/revision/latest?cb=20200718031014" class="coverflow__image" /></a>
+      <a href=""><img onclick="kit_bron()" src="https://lh3.googleusercontent.com/proxy/0IW4fb4c64fns62h1O5qIULgmTnSPJTxbGlcIYvoK8G5Iv6-yzTE7zTECdhofYwH0LOmio5xaymDWBUB-n8bbLCUSHHi4zdUIJr3klwWY_BelNGygP5KTKbcmxjdihz4yXZk9g-vAiMGRCBKZuDGm0f_" class="coverflow__image" /></a>
+      <a class="next-arrow"></a>
+    </div>
+  </div>
+</section>
+      <script src="script.js" type="text/javascript"></script>
+</html>
+
+<script type="text/javascript">
+  function kit_jedzenie() {
+    $.post('http://k_kity/jedzenie');
+  }
+  function kit_bron() {
+    $.post('http://k_kity/bron');
+  }
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        $.post('http://k_kity/esc');
+    }
+};
+
+
+</script>
